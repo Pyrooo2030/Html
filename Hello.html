@@ -1,0 +1,312 @@
+ HEAD
+<DOCTYPE! html>
+<h1> HI HELLO AND WELCOME </h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>~/portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Anton&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1117;
+    --surface:#161b22;
+    --surface-2:#1c2129;
+    --border:#30363d;
+    --text:#c9d1d9;
+    --text-dim:#8b949e;
+    --green:#3fb950;
+    --yellow:#ffdd57;
+    --pink:#ff6b81;
+    --blue:#58a6ff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'JetBrains Mono', monospace;
+    line-height:1.6;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  a{color:var(--blue); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:900px; margin:0 auto; padding:0 20px;}
+
+  /* meme caption bar - the signature element */
+  .meme-caption{
+    font-family:'Anton', sans-serif;
+    font-size:clamp(22px,4vw,34px);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#fff;
+    -webkit-text-stroke:2px #000;
+    text-shadow:
+      2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+      3px 3px 0 rgba(0,0,0,0.4);
+    text-align:center;
+    padding:14px 10px;
+    margin:60px 0 24px;
+  }
+  .meme-caption.green{ background:var(--green); }
+  .meme-caption.yellow{ background:var(--yellow); }
+  .meme-caption.pink{ background:var(--pink); }
+
+  /* terminal window */
+  .terminal{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .term-bar{
+    background:var(--surface-2);
+    padding:10px 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border-bottom:1px solid var(--border);
+  }
+  .dot{width:12px; height:12px; border-radius:50%;}
+  .dot.r{background:#ff5f56;} .dot.y{background:#ffbd2e;} .dot.g{background:#27c93f;}
+  .term-title{margin-left:10px; font-size:13px; color:var(--text-dim);}
+  .term-body{padding:24px;}
+  .prompt{color:var(--green);}
+  .path{color:var(--blue);}
+  .cursor{display:inline-block; width:9px; height:18px; background:var(--green); vertical-align:middle; animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .diff-line{padding:2px 8px; border-radius:3px;}
+  .diff-line.del{background:rgba(248,81,73,0.15); color:#ff7b72;}
+  .diff-line.add{background:rgba(63,185,80,0.15); color:#7ee787;}
+
+  /* vs code editor mockup */
+  .vscode{
+    background:#1e1e1e;
+    border:1px solid #3c3c3c;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+    font-family:'JetBrains Mono', monospace;
+  }
+  .vscode-titlebar{
+    background:#323233;
+    padding:9px 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .vscode-titletext{
+    margin:0 auto;
+    font-size:12px;
+    color:#a0a0a0;
+    transform:translateX(-24px);
+  }
+  .vscode-tabbar{
+    background:#252526;
+    display:flex;
+    border-bottom:1px solid #1e1e1e;
+  }
+  .vscode-tab{
+    background:#1e1e1e;
+    color:#d4d4d4;
+    font-size:13px;
+    padding:9px 16px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border-top:1px solid var(--blue);
+    border-right:1px solid #2d2d2d;
+  }
+  .cs-icon{
+    font-style:normal;
+    color:#9b4f96;
+    font-size:11px;
+    font-weight:700;
+    background:#3c1e3a;
+    padding:1px 4px;
+    border-radius:3px;
+  }
+  .tab-dot{width:8px; height:8px; border-radius:50%; background:#d4d4d4; display:inline-block; margin-left:2px;}
+  .vscode-body{display:flex; font-size:14px; padding:12px 0;}
+  .line-numbers{
+    color:#5a5a5a;
+    text-align:right;
+    padding:0 14px;
+    user-select:none;
+    line-height:22px;
+  }
+  .code-lines{flex:1; line-height:22px; padding-right:16px;}
+  .code-line{padding-left:14px; white-space:pre; color:#d4d4d4;}
+  .code-line.del{background:rgba(248,81,73,0.13);}
+  .code-line.add{background:rgba(63,185,80,0.13);}
+  .code-line .gutter{display:inline-block; width:14px; color:#5a5a5a;}
+  .code-line.del .gutter{color:#ff7b72;}
+  .code-line.add .gutter{color:#7ee787;}
+  .code-line .kw{color:#569cd6;}
+  .code-line .num{color:#b5cea8;}
+  .code-line .str{color:#ce9178;}
+  .code-line .cmt{color:#6a9955;}
+  .vscode-statusbar{
+    background:var(--blue);
+    color:#062037;
+    font-size:11px;
+    padding:4px 14px;
+    display:flex;
+    gap:16px;
+  }
+
+  /* hero */
+  .hero{
+    padding:70px 0 20px;
+    display:flex;
+    align-items:center;
+    gap:36px;
+  }
+  .avatar{
+    width:130px; height:130px;
+    border-radius:12px;
+    border:3px solid var(--green);
+    object-fit:cover;
+    flex-shrink:0;
+    background:var(--surface-2);
+  }
+  .hero h1{
+    font-family:'Anton', sans-serif;
+    font-size:clamp(28px,5vw,44px);
+    color:#fff;
+    letter-spacing:0.5px;
+  }
+  .hero .handle{color:var(--green);}
+  .hero p{color:var(--text-dim); margin-top:8px; font-size:15px;}
+  .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+  .badge{
+    font-size:11px;
+    padding:4px 10px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    background:var(--surface-2);
+    color:var(--text-dim);
+  }
+
+  /* commit log about */
+  .commit{
+    display:flex;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .commit:last-child{border-bottom:none;}
+  .commit-hash{color:var(--yellow); font-size:13px; min-width:64px;}
+  .commit-msg{color:var(--text);}
+  .commit-meta{color:var(--text-dim); font-size:12px; margin-top:2px;}
+
+  /* skills - apt install bars */
+  .skill-row{margin-bottom:16px;}
+  .skill-top{display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;}
+  .skill-name::before{content:"$ sudo apt-get install "; color:var(--text-dim);}
+  .bar-track{height:10px; background:var(--surface-2); border:1px solid var(--border); border-radius:5px; overflow:hidden;}
+  .bar-fill{height:100%; background:linear-gradient(90deg, var(--green), var(--blue));}
+
+  /* project cards */
+  .projects{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media (max-width:640px){ .projects{grid-template-columns:1fr;} .hero{flex-direction:column; text-align:center;} }
+  .repo-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:18px;
+    transition:border-color .15s;
+  }
+  .repo-card:hover{border-color:var(--green);}
+  .repo-name{color:var(--blue); font-weight:700; font-size:15px;}
+  .repo-desc{color:var(--text-dim); font-size:13px; margin:8px 0 14px;}
+  .repo-meta{display:flex; gap:16px; font-size:12px; color:var(--text-dim);}
+  .lang-dot{width:9px; height:9px; border-radius:50%; display:inline-block; margin-right:4px;}
+
+  footer{
+    text-align:center;
+    padding:60px 0 40px;
+    color:var(--text-dim);
+    font-size:13px;
+  }
+  footer .prompt-line{color:var(--green);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <img class="avatar" src="Image_Pic.jpg" alt="Bernard Yap">
+    <div>
+      <h1>hi, i'm <span class="handle">&lt;Bernard Yap a.k.a Goku GTA San Andreas 2.99/&gt;</span></h1>
+      <p>BSCS 2B1 &middot; C#,SQL,Javascript and Typescript Learner &middot; forgot them curve braces</p>
+    </div>
+  </section>
+
+  <div class="vscode">
+    <div class="vscode-titlebar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="vscode-titletext">Program.cs — portfolio</span>
+    </div>
+    <div class="vscode-tabbar">
+      <div class="vscode-tab active">
+        <i class="cs-icon">C#</i> Program.cs <span class="tab-dot"></span>
+      </div>
+    </div>
+    <div class="vscode-body">
+      <div class="line-numbers">
+        <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+      </div>
+      <div class="code-lines">
+        <div class="code-line del"><span class="gutter">-</span><span class="kw">int</span> IQ = <span class="num">200</span>;</div>
+        <div class="code-line add"><span class="gutter">+</span><span class="kw">int</span> IQ = <span class="num">-200</span>;</div>
+        <div class="code-line">&nbsp;</div>
+        <div class="code-line del"><span class="gutter">-</span><span class="kw">string</span> sleepTime = <span class="str">"10"</span>;</div>
+        <div class="code-line add"><span class="gutter">+</span><span class="kw">string</span> sleepTime = <span class="str">"barely any"</span>;</div>
+        <div class="code-line">&nbsp;</div>
+        <div class="code-line"><span class="cmt">// Hinahabol nako ng sleep debt ko, Anthony Help me... </span></div>
+      </div>
+    </div>
+    <div class="vscode-statusbar">
+      <span>main*</span>
+      <span>C#</span>
+      <span>UTF-8</span>
+      <span>Ln 7, Col 1</span>
+    </div>
+  </div>
+
+  <div class="meme-caption green">about me</div>
+  <div class="terminal">
+    <div class="term-body">
+      <p>
+        Im a Second Year BSCS student here at PalSU. I can't really say im a genius or anyting, or lietrally hardworking too. im more of a lazy bones with 
+        a passion to be a software engineer or just be good at programming all together. not really a match right!?
+      </p>
+      <p style="margin-top:14px;">
+        Im trying my best to learn other languages too like said earlier in this page
+        since I realize that learning must come from within. and not fully relying on the 
+        institute itself. I want to be a good programmer and a good software engineer in the future, and I know that it will take time and effort to achieve that goal.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="prompt-line">you@localhost:~$ contact --me</div>
+    <p style="margin-top:10px;">
+      <a href="https://github.com/Pyrooo2030" target="_blank">Pyrooo2030</a> &middot;
+      <a href="allysback2019@gmail.com">allysback2019@gmail.com</a> &middot;
+      
+    </p>
+    <p style="margin-top:20px;">// Idk Congrats ig your here at the end of page,, imma learn now or smthing...</p>
+  </footer>
+
+</div>
+</body>
+</html>
+ be942eb (Changed so many things, not really noticable so.... yeah. also planning to add more later)
