@@ -95,6 +95,58 @@ body {
         accent-color: #a708dc;
     }
 
+    .enroll-btn {
+        display: block;
+        width: 100%;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 16px;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .enroll-btn:hover {
+        background-color: #8a06b8;
+    }
+
+    .error-message {
+        color: #ff6b6b;
+        font-size: 13px;
+        margin-top: -10px;
+        margin-bottom: 20px;
+        display: none;
+    }
+
+     .password-wrapper {
+        position: relative;
+    }
+
+    .password-wrapper input {
+        padding-right: 90px;
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: rgba(8, 218, 26, 0.811);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 4px 6px;
+    }
+
+    .toggle-password:hover {
+        color: #ffffff;
+    }
+
 
 
     </style>
@@ -144,15 +196,54 @@ body {
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('password', this)">Show</button>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="confirmPassword">Re-enter Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="password-wrapper">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword', this)">Show</button>
+                </div>
             </div>
+
+            <p class="error-message" id="errorMessage">Passwords do not match. Please try again.</p>
+
+            <button type="submit" class="enroll-btn">Enroll/Register</button>
         </form>
     </div>
+ <script>
+ function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+                btn.textContent = "Hide";
+            } else {
+                input.type = "password";
+                btn.textContent = "Show";
+            }
+        }
 
+
+        const form = document.querySelector('form');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password === confirmPassword) {
+                errorMessage.style.display = 'none';
+                window.location.href = 'RegistrationComplete.html';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
