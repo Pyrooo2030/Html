@@ -229,6 +229,7 @@ body {
 
         const form = document.querySelector('form');
         const errorMessage = document.getElementById('errorMessage');
+        const submitBtn = form.querySelector('button[type="submit"]');
 
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
@@ -242,6 +243,7 @@ body {
             }
 
             errorMessage.style.display = 'none';
+            submitBtn.disabled = true;
 
             const sexInput = document.querySelector('input[name="sex"]:checked');
 
@@ -267,10 +269,12 @@ body {
                     const errorText = await response.text();
                     errorMessage.textContent = errorText;
                     errorMessage.style.display = 'block';
+                    submitBtn.disabled = false;
                 }
             } catch (err) {
                 errorMessage.textContent = 'Could not connect to server.';
                 errorMessage.style.display = 'block';
+                submitBtn.disabled = false;
             }
         });
     </script>
