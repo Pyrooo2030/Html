@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Test 1 - Double-U Tree</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+    body {
+        background-color: #1c1c26;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #400653;
+        padding: 10px 20px;
+    }
+
+    .back-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(-3px);
+    }
+
+    main {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px 40px 60px;
+    }
+
+    h1 {
+        color: #a708dc;
+        font-size: 36px;
+        margin: 0 0 30px 0;
+    }
+
+    h2 {
+        color: rgba(8, 218, 26, 0.811);
+        font-size: 18px;
+        margin: 0 0 12px 0;
+    }
+
+    .section-gap {
+        margin-top: 28px;
+    }
+
+    .card {
+        background-color: #2a2a38;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    .card p,
+    .card li {
+        color: #cccccc;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .message {
+        background-color: #1c1c26;
+        border-left: 3px solid #a708dc;
+        border-radius: 4px;
+        padding: 14px 16px;
+    }
+
+    .card ol {
+        margin: 0;
+        padding-left: 22px;
+    }
+
+    .card li code {
+        color: #ffa657;
+    }
+
+    .code-block {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        margin-top: 16px;
+    }
+
+    .code-block pre {
+        margin: 0;
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    .code-block code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #c9d1d9;
+    }
+
+    .code-block.output code {
+        color: rgba(8, 218, 26, 0.811);
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 260px;
+        box-sizing: border-box;
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        color: #c9d1d9;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        padding: 16px;
+        resize: vertical;
+    }
+
+    textarea:focus {
+        outline: none;
+        border-color: #a708dc;
+    }
+
+    .check-btn {
+        display: block;
+        width: 100%;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 15px;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 14px;
+        transition: background-color 0.2s ease;
+    }
+
+    .check-btn:hover {
+        background-color: #8a06b8;
+    }
+
+    .results {
+        margin-top: 16px;
+        display: none;
+    }
+
+    .results .summary {
+        color: white;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .result-item {
+        font-size: 13px;
+        padding: 6px 0;
+        color: #cccccc;
+    }
+
+    .result-item.pass::before {
+        content: "\2713  ";
+        color: rgba(8, 218, 26, 0.811);
+    }
+
+    .result-item.fail::before {
+        content: "\2717  ";
+        color: #ff6b6b;
+    }
+
+    .note {
+        color: #8a8a9a;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .next-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .next-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(3px);
+    }
+
+    .prev-btn {
+        display: inline-block;
+        background-color: transparent;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 12px 24px;
+        border: 1px solid #a708dc;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .prev-btn:hover {
+        background-color: #400653;
+        transform: translateX(-3px);
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <a class="back-btn" href="../../Dashboard.html">&larr; Back to Dashboard</a>
+    </header>
+
+    <main>
+        <h1>C# Test 1</h1>
+
+        <div class="card">
+            <div class="message">
+                <p>Congrats on Reaching This Point! But ofcourse, we need to check if you really learned something and to also make sure you can apply it in real-world scenarios. this test will serve as both your knowledge check and a checkpoint. finish this and your "Tree" will slowly grow. So goodluck!</p>
+            </div>
+
+            <h2 class="section-gap">The Problem: Cafe Receipt</h2>
+            <p>You are making a small program for a cafe. It asks the customer for their name, the price of one item and how many they want. Then it prints a receipt with the subtotal, the tax and the total.</p>
+
+            <h2 class="section-gap">Requirements</h2>
+            <ol>
+                <li>Create a constant for the tax rate and set it to <code>0.10</code>.</li>
+                <li>Ask the user for their name, the item price and the quantity using <code>Console.ReadLine()</code>.</li>
+                <li>Convert the price to a <code>double</code> and the quantity to an <code>int</code>.</li>
+                <li>Store the subtotal, tax and total in variables.</li>
+                <li>Print the receipt using <code>Console.WriteLine()</code>.</li>
+                <li>Add at least one comment that explains part of your code.</li>
+            </ol>
+
+            <h2 class="section-gap">Sample Run</h2>
+            <p>If the user types Alex, 50 and 2, your program should print:</p>
+            <div class="code-block output">
+<pre><code>Enter your name: Alex
+Enter item price: 50
+Enter quantity: 2
+--- Receipt ---
+Customer: Alex
+Subtotal: 100
+Tax: 10
+Total: 110</code></pre>
+            </div>
+
+            <h2 class="section-gap">Your Code</h2>
+            <textarea id="codeInput" spellcheck="false" placeholder="Type your C# code here..."></textarea>
+            <button type="button" class="check-btn" id="checkBtn">Check My Code</button>
+
+            <div class="results" id="results">
+                <div class="summary" id="summary"></div>
+                <div id="resultList"></div>
+                <div class="note">This only checks that your code uses the required parts. It does not run your program.</div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a class="prev-btn" href="CsharpTypeAndUser.html">&larr; Go Back</a>
+            <a class="next-btn" href="../../Dashboard.html">Finish</a>
+        </div>
+    </main>
+
+    <script>
+        const checks = [
+            { label: 'Uses a constant (const)', test: /\bconst\b/ },
+            { label: 'Reads user input with Console.ReadLine()', test: /Console\.ReadLine\s*\(/ },
+            { label: 'Converts input to another type', test: /Convert\.To(Int32|Double|Decimal)|int\.Parse|double\.Parse|decimal\.Parse/ },
+            { label: 'Declares variables', test: /\b(int|double|string|decimal)\s+\w+\s*=/ },
+            { label: 'Prints with Console.WriteLine()', test: /Console\.WriteLine\s*\(/ },
+            { label: 'Includes at least one comment', test: /\/\/|\/\*/ }
+        ];
+
+        document.getElementById('checkBtn').addEventListener('click', function () {
+            const code = document.getElementById('codeInput').value;
+            const list = document.getElementById('resultList');
+            list.innerHTML = '';
+            let passed = 0;
+
+            checks.forEach(function (check) {
+                const ok = check.test.test(code);
+                if (ok) passed++;
+                const item = document.createElement('div');
+                item.className = 'result-item ' + (ok ? 'pass' : 'fail');
+                item.textContent = check.label;
+                list.appendChild(item);
+            });
+
+            document.getElementById('summary').textContent =
+                passed + ' of ' + checks.length + ' requirements found';
+            document.getElementById('results').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
