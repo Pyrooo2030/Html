@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Comments - Double-U Tree</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+    body {
+        background-color: #1c1c26;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header */
+    header {
+        background-color: #400653;
+        padding: 10px 20px;
+    }
+
+    .back-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(-3px);
+    }
+
+    /* Body */
+    main {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px 40px 60px;
+    }
+
+    h1 {
+        color: #a708dc;
+        font-size: 36px;
+        margin: 0 0 30px 0;
+    }
+
+    h2 {
+        color: rgba(8, 218, 26, 0.811);
+        font-size: 18px;
+        margin: 0 0 12px 0;
+    }
+
+    .section-gap {
+        margin-top: 28px;
+    }
+
+    .card {
+        background-color: #2a2a38;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    .card p {
+        color: #cccccc;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* Step-by-step guide */
+    .step {
+        margin-top: 22px;
+    }
+
+    .step-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .step-head h3 {
+        margin: 0;
+        font-size: 15px;
+        color: white;
+    }
+
+    .step-num {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #a708dc;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    /* Markdown-style code block */
+    .code-block {
+        position: relative;
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        margin-top: 16px;
+    }
+
+    .code-block pre {
+        margin: 0;
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    .code-block code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #c9d1d9;
+    }
+
+    .code-lang {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        font-size: 11px;
+        color: #8b949e;
+    }
+
+    .code-block.output code {
+        color: rgba(8, 218, 26, 0.811);
+    }
+
+    .code-block .cmt  { color: #8b949e; }
+    .code-block .type { color: #ffa657; }
+    .code-block .fn   { color: #d2a8ff; }
+    .code-block .str  { color: #a5d6ff; }
+
+    /* Picture placeholder.
+       To use a real picture, replace the whole <div class="picture-placeholder">
+       with: <img class="lesson-img" src="yourpicture.png" alt="description"> */
+    .picture-placeholder {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin-top: 16px;
+        border: 2px dashed #555;
+        border-radius: 8px;
+        background-color: #1c1c26;
+        color: #8a8a9a;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .lesson-img {
+        display: block;
+        width: 100%;
+        margin-top: 16px;
+        border-radius: 8px;
+    }
+
+    .caption {
+        color: #8a8a9a;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    .next-wrapper {
+        text-align: right;
+    }
+
+    .next-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .next-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(3px);
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <a class="back-btn" href="CsharpPrint.html">&larr; Go Back</a>
+    </header>
+
+    <main>
+        <h1>C# Comments</h1>
+
+        <div class="card">
+            <h2>What Are Comments?</h2>
+            <p>When you code something and you want someone to understand what does it do and you don't want to explain it yourself. Use comments. comments are notes in your code that are ignored by the compiler. they are crucial especially when you work with people and you want then to know the context of you code to avoid confusion.</p>
+
+            <h2 class="section-gap">Single-Line Comments</h2>
+            <p>Single line comments start with two forward slashes (//) and extend to the end of the line.</p>
+            <div class="code-block">
+<pre><code><span class="cmt">// This is a single-line comment</span>
+
+            </div>
+            
+
+            <h2 class="section-gap">Multi-Line Comments</h2>
+            <p>Unlike single-line comments, multi-line comments can span multiple lines and are enclosed between /* and */. better used if you need to comment out large sections of code.</p>
+            <div class="code-block">
+<pre><code><span class="cmt">/* This is a
+   multi-line comment */</span>
+
+            </div>
+        </div>
+
+        <div class="next-wrapper">
+            <a class="next-btn" href="CsharpPage4.html">Next Page &rarr;</a>
+        </div>
+    </main>
+
+</body>
+</html>
