@@ -4,8 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Double-U Tree</title>
-</head>
-<body>
+
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+        body {
+        background-color: #1c1c26;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        margin: 0;
+        padding: 0;
+    }
+ 
+    /* Account tab */
+    #accountTab {
+        background-color: #400653;
+        text-align: left;
+        padding: 10px 20px;
+    }
+ 
+    #accountTab p {
+        margin: 0;
+        color: rgba(8, 218, 26, 0.811);
+        font-size: 13px;
+    }
+ 
+    #accountUsername {
+        color: #a708dc;
+        font-size: 14px;
+        font-weight: bold;
+        display: inline;
+        margin-left: 4px;
+    }
+ 
+    .section {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px 40px 10px;
+    }
+ 
+    .section h2 {
+        color: #a708dc;
+        margin: 0 0 20px 0;
+        font-size: 24px;
+    }
+ 
+    hr {
+        max-width: 620px;
+        border: none;
+        border-top: 1px solid #444;
+        margin: 10px auto;
+    }
+    .card {
+        background-color: #2a2a38;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+    }
+ 
+    .course-link {
+        color: rgba(8, 218, 26, 0.811);
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+ 
+    .course-link:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+ 
+    .card p {
+        margin: 0 0 12px 0;
+        color: #cccccc;
+        font-size: 14px;
+    }
+ 
+    .card p.course-title {
+        margin-bottom: 8px;
+    }
+ 
+    progress {
+        width: 100%;
+        height: 14px;
+        border: none;
+        border-radius: 7px;
+        overflow: hidden;
+        background-color: #1c1c26;
+        accent-color: #a708dc;
+    }
+ 
+    progress::-webkit-progress-bar {
+        background-color: #1c1c26;
+        border-radius: 7px;
+    }
+ 
+    progress::-webkit-progress-value {
+        background-color: #a708dc;
+        border-radius: 7px;
+    }
+ 
+    progress::-moz-progress-bar {
+        background-color: #a708dc;
+        border-radius: 7px;
+    }
+ 
+    /* Other languages */
+    .language-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 30px 0;
+    }
+ 
+    .language-grid li {
+        background-color: #2a2a38;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 24px 16px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease,
+                    box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+ 
+    .language-grid li:hover {
+        transform: translateY(-6px);
+        border-color: #a708dc;
+        background-color: #33334a;
+        box-shadow: 0 8px 20px rgba(167, 8, 220, 0.35);
+        color: rgba(8, 218, 26, 0.811);
+    }
+ 
+    @media (max-width: 480px) {
+        .language-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+
+
+
+
+
+        </style>
+
+    </head>
+    <body> 
 
     <!-- Account tab -->
     <div id="accountTab">
@@ -15,23 +166,28 @@
     <hr>
 
     <!-- Current course progress -->
-    <div id="progressTab">
+    <div id="progressTab" class="section">
         <h2>Your Progress</h2>
-        <p>Cdull 5/8 - Data Conversion</p>
-        <p>You are almost done!</p>
-        <progress value="5" max="8"></progress>
+        <div class = "card">
+        <p class="course-title">
+        <a class = "course-link" href = CsharpIntro.html    > C#</a>
+        0% - Getting Started with Csharp 
+        </p>
+        <progress value="0" max="100"></progress>
+        </div> 
+        
     </div>
 
     <hr>
 
-    <!-- Other languages to learn -->
+    <!-- Other languages(?) to learn -->
     <div id="otherLanguagesTab">
         <h2>Wanna Learn Other Languages?</h2>
         <ul>
-            <li>C-</li>
-            <li>Anaconda</li>
-            <li>C--</li>
-            <li>Shoestrap</li>
+            <li>C</li>
+            <li>Python</li>
+            <li>C++</li>
+            <li>Bootstrap</li>
         </ul>
     </div>
 
