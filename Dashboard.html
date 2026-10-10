@@ -140,6 +140,62 @@
         box-shadow: 0 8px 20px rgba(167, 8, 220, 0.35);
         color: rgba(8, 218, 26, 0.811);
     }
+    #treeTab {
+    padding-bottom: 50px;
+}
+
+.tree-link {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: #2a2a38;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease,
+                box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.tree-link:hover {
+    transform: translateY(-6px);
+    border-color: #a708dc;
+    background-color: #33334a;
+    box-shadow: 0 8px 20px rgba(167, 8, 220, 0.35);
+}
+
+.tree-logo {
+    flex-shrink: 0;
+}
+
+.tree-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.tree-title {
+    color: rgba(8, 218, 26, 0.811);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tree-sub {
+    color: #cccccc;
+    font-size: 13px;
+}
+
+.tree-arrow {
+    color: #a708dc;
+    font-size: 22px;
+    transition: transform 0.2s ease;
+}
+
+.tree-link:hover .tree-arrow {
+    transform: translateX(4px);
+}
  
     @media (max-width: 480px) {
         .language-grid {
@@ -190,6 +246,25 @@
             <li>Bootstrap</li>
         </ul>
     </div>
+    <hr>
+
+<div id="treeTab" class="section">
+    <a class="tree-link" href="TreeOfWisdom.html">
+        <svg class="tree-logo" viewBox="0 0 64 64" width="56" height="56" fill="none" aria-hidden="true">
+            <circle cx="32" cy="20" r="14" fill="rgba(8, 218, 26, 0.811)"/>
+            <circle cx="19" cy="31" r="10" fill="rgba(8, 218, 26, 0.65)"/>
+            <circle cx="45" cy="31" r="10" fill="rgba(8, 218, 26, 0.65)"/>
+            <path d="M32 30 V54" stroke="#a708dc" stroke-width="5" stroke-linecap="round"/>
+            <path d="M32 44 L22 35 M32 40 L42 31" stroke="#a708dc" stroke-width="3" stroke-linecap="round"/>
+            <path d="M32 54 L23 61 M32 54 L41 61" stroke="#a708dc" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="tree-text">
+            <span class="tree-title">Tree of Wisdom</span>
+            <span class="tree-sub">Check your efforts' culmination</span>
+        </span>
+        <span class="tree-arrow">&rarr;</span>
+    </a>
+</div>
 
 </body>
 </html>
