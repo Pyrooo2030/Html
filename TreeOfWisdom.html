@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree of Wisdom - Double-U Tree</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+    body {
+        background-color: #1c1c26;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #400653;
+        padding: 10px 20px;
+    }
+
+    .back-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(-3px);
+    }
+
+    main {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px 40px 60px;
+    }
+
+    h1 {
+        color: #a708dc;
+        font-size: 36px;
+        margin: 0 0 30px 0;
+    }
+
+    h2 {
+        color: rgba(8, 218, 26, 0.811);
+        font-size: 18px;
+        margin: 0 0 12px 0;
+    }
+
+    .card {
+        background-color: #2a2a38;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    .card p {
+        color: #cccccc;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .tree-stage {
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .tree-art {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .seed-glow {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 0.35; transform: scale(0.9); }
+        50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .stage-badge {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 4px 14px;
+        border: 1px solid #a708dc;
+        border-radius: 20px;
+        color: #a708dc;
+        font-size: 12px;
+    }
+
+    .tree-stage p {
+        margin-top: 12px;
+    }
+
+    .step {
+        display: flex;
+        gap: 14px;
+        margin-top: 18px;
+    }
+
+    .step:first-of-type {
+        margin-top: 0;
+    }
+
+    .step-num {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: #a708dc;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .step h3 {
+        margin: 2px 0 6px 0;
+        font-size: 15px;
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <a class="back-btn" href="Dashboard.html">&larr; Back to Dashboard</a>
+    </header>
+
+    <main>
+        <h1>Tree of Wisdom</h1>
+
+        <div class="card tree-stage">
+            <svg class="tree-art" viewBox="0 0 240 220" width="240" height="220" fill="none" role="img" aria-label="A seed resting in the soil">
+                <circle cx="120" cy="66" r="42" stroke="#444" stroke-width="2" stroke-dasharray="5 6"/>
+                <path d="M120 108 V146" stroke="#444" stroke-width="2" stroke-dasharray="5 6"/>
+                <circle class="seed-glow" cx="120" cy="162" r="26" fill="rgba(8, 218, 26, 0.18)"/>
+                <ellipse cx="120" cy="161" rx="10" ry="14" fill="rgba(8, 218, 26, 0.811)"/>
+                <path d="M116 154 Q118 160 117 166" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M20 192 Q120 150 220 192 V212 H20 Z" fill="#400653"/>
+                <path d="M20 192 Q120 150 220 192" stroke="#a708dc" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div class="stage-badge">Current stage: Seed</div>
+            <p>Every tree starts as a seed. As you progress through your learning journey, your tree will grow and flourish.</p>
+        </div>
+
+        <div class="card">
+            <h2>How To Grow Your Tree</h2>
+
+            <div class="step">
+                <span class="step-num">1</span>
+                <div>
+                    <h3>Seed</h3>
+                    <p>The kind of seed you'll have depends on what language you first choose to learn.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-num">2</span>
+                <div>
+                    <h3>Root And Trunk</h3>
+                    <p>Once you have a solid foundation in your chosen language (Mastered or Passed an advance or professional level coding test), your tree will develop strong roots and a sturdy trunk.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-num">3</span>
+                <div>
+                    <h3>Branches</h3>
+                    <p>As you learn different kinds of coding languages (Assuming you mastered your first language), your tree will grow branches, each representing the new language you are learning.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-num">4</span>
+                <div>
+                    <h3>Leaves</h3>
+                    <p>As your tree continues to grow, the leaves grown will represent all of the achievements and accomplishments you have gained throughout your learning journey.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
