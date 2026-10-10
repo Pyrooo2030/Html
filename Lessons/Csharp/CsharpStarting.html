@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Printing - Double-U Tree</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+    body {
+        background-color: #1c1c26;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header */
+    header {
+        background-color: #400653;
+        padding: 10px 20px;
+    }
+
+    .back-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(-3px);
+    }
+
+    /* Body */
+    main {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px 40px 60px;
+    }
+
+    h1 {
+        color: #a708dc;
+        font-size: 36px;
+        margin: 0 0 30px 0;
+    }
+
+    h2 {
+        color: rgba(8, 218, 26, 0.811);
+        font-size: 18px;
+        margin: 0 0 12px 0;
+    }
+
+    .section-gap {
+        margin-top: 28px;
+    }
+
+    .card {
+        background-color: #2a2a38;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    .card p {
+        color: #cccccc;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* Step-by-step guide */
+    .step {
+        margin-top: 22px;
+    }
+
+    .step-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .step-head h3 {
+        margin: 0;
+        font-size: 15px;
+        color: white;
+    }
+
+    .step-num {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #a708dc;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    /* Markdown-style code block */
+    .code-block {
+        position: relative;
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        margin-top: 16px;
+    }
+
+    .code-block pre {
+        margin: 0;
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    .code-block code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #c9d1d9;
+    }
+
+    .code-lang {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        font-size: 11px;
+        color: #8b949e;
+    }
+
+    .code-block.output code {
+        color: rgba(8, 218, 26, 0.811);
+    }
+
+    .code-block .cmt  { color: #8b949e; }
+    .code-block .type { color: #ffa657; }
+    .code-block .fn   { color: #d2a8ff; }
+    .code-block .str  { color: #a5d6ff; }
+
+
+    
+
+    .lesson-img {
+        display: block;
+        width: 100%;
+        margin-top: 16px;
+        border-radius: 8px;
+    }
+
+    .caption {
+        color: #8a8a9a;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    .next-wrapper {
+        text-align: right;
+    }
+
+    .next-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .next-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(3px);
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <a class="back-btn" href="CsharpIntro.html">&larr; Go Back</a>
+    </header>
+
+    <main>
+        <h1>C# Getting Started and Printing</h1>
+
+        <div class="card">
+            
+            <h2>Where To Start Coding</h2>
+
+            <div class="step">
+                <div class="step-head"><span class="step-num">1</span><h3>Open Your IDE </h3></div>
+                <p>Donwload the visual studio installer from <a href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a> and after download choose the .NET Desktop Development. then click install</p>
+            </div>
+
+            <div class="step">
+                <div class="step-head"><span class="step-num">2</span><h3>Create A New Project</h3></div>
+                <p>To create a new C# console project, open Visual Studio and select "Create a new project". Choose "Console App" and click "Next".</p>
+            </div>
+
+            <div class="step">
+                <div class="step-head"><span class="step-num">3</span><h3>Find Where To Type</h3></div>
+                <p>The code file is usually named `Program.cs` and is located in the project folder. to start typing your code, simply click on the Text editor area and start typing.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-head"><span class="step-num">4</span><h3>Write And Run Your First Line with WriteLine() and Write()</h3></div>
+                <p>There are two main methods for printing in C#: <code>Console.WriteLine()</code> and <code>Console.Write()</code>. The difference is that <code>Console.WriteLine()</code> adds a newline character at the end, while <code>Console.Write()</code> does not. also remember that Csharp runs code Sequentially, meaning it runs the code from top to botton. meaning placement of code can give different results.</p>
+            <div class="code-block">
+<pre><code><span class="cmt">// This will print "Hi, World!" followed by a newline</span>
+<span class="type">Console</span>.<span class="fn">WriteLine</span>(<span class="str">"Hi, World!"</span>);</code></pre>
+<pre><code><span class="cmt">// This will print "Hi, World!" without a newline</span>
+<span class="type">Console</span>.<span class="fn">Write</span>(<span class="str">"Hi, World!"</span>);</code></pre>
+            </div>
+            <div class="step">
+                    <p> Output:</p>
+                </div>
+            <div class="code-block output"> 
+                
+<pre><code>Hi, World! </code></pre>
+<pre><code>Hi, World! </code></pre>
+            </div>
+            </div>
+
+            <h2 class="section-gap">What Is Printing?</h2>
+            <p>So what you experienced earlier was the concept of printing output to the console terminal. known as printing, this is a fundamental way to display information to the user. its mainly used to display results of operations or to provide feedback to the user.</p>
+
+            <h2 class="section-gap">How To Print</h2>
+            <p>As stated earlier, the two main methods for printing in C# are <code>Console.WriteLine()</code> and <code>Console.Write()</code>.</p>
+
+            <h2 class="section-gap">Try It Yourself</h2>
+            <p>Since now you know the basics of printing in C#, try creating a simple program that uses both <code>Console.WriteLine()</code> and <code>Console.Write()</code> to see the difference in their output. </p>
+            <p>EXTRA: try using <code>Console.Write()</code> then put <code>Console.WriteLine()</code> below it to see what would it look like.</p>
+        </div>
+
+        <div class="next-wrapper">
+            <a class="next-btn" href="CsharpPage3.html">Next Page &rarr;</a>
+        </div>
+    </main>
+
+</body>
+</html>
