@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Introduction - Double-U Tree</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+    body {
+        background-color: #1c1c26;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        margin: 0;
+        padding: 0;
+    }
+
+  
+    header {
+        background-color: #400653;
+        padding: 10px 20px;
+    }
+
+    .back-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(-3px);
+    }
+
+
+    main {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px 40px 60px;
+    }
+
+    h1 {
+        color: #a708dc;
+        font-size: 36px;
+        margin: 0 0 30px 0;
+    }
+
+    h2 {
+        color: rgba(8, 218, 26, 0.811);
+        font-size: 18px;
+        margin: 0 0 12px 0;
+    }
+
+    .card {
+        background-color: #2a2a38;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    .section-gap {
+        margin-top: 28px;
+    }
+
+    .next-wrapper {
+        text-align: right;
+    }
+
+    .next-btn {
+        display: inline-block;
+        background-color: #a708dc;
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .next-btn:hover {
+        background-color: #8a06b8;
+        transform: translateX(3px);
+    }
+
+    .card p,
+    .card li {
+        color: #cccccc;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .card ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+   
+    .difficulty-scale {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .level {
+        flex: 1;
+        height: 14px;
+        border-radius: 7px;
+        background-color: #1c1c26;
+        border: 1px solid #444;
+    }
+
+ 
+    .level.filled {
+        background-color: #a708dc;
+        border-color: #a708dc;
+    }
+
+    .difficulty-label {
+        color: #cccccc;
+        font-size: 13px;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <a class="back-btn" href="Dashboard.html">&larr; Go Back</a>
+    </header>
+
+    <main>
+        <h1>C# Introduction</h1>
+
+        <div class="card">
+           
+            <h2>Message for us</h2>
+            <p>Write your intro message here.</p>
+
+           
+            <h2 class="section-gap">What You Will Learn</h2>
+            <ul>
+                <li>Learning point 1</li>
+                <li>Learning point 2</li>
+                <li>Learning point 3</li>
+            </ul>
+
+         
+            <h2 class="section-gap">Difficulty</h2>
+            <div class="difficulty-scale">
+                <div class="level filled"></div>
+                <div class="level filled"></div>
+                <div class="level filled"></div>
+                <div class="level"></div>
+                <div class="level"></div>
+            </div>
+            <div class="difficulty-label">3 / 5 - Intermediate</div>
+        </div>
+
+        <div class="next-wrapper">
+            <a class="next-btn" href="CsharpPrint.html">Next Page &rarr;</a>
+        </div>
+    </main>
+
+</body>
+</html>
